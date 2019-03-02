@@ -31,18 +31,6 @@ void FT_InterruptHandler(void)
     status = InPort(OPL4_REG) & 0x80;
     if(status)
     {
-/*        playbackIndex = 0;
-        while(playbackBuffer[playbackIndex].addr != 0xFF)
-        {
-            if(!playbackBuffer[playbackIndex].port3)
-                FT_WriteOpl1(playbackBuffer[playbackIndex].addr, playbackBuffer[playbackIndex].value);
-            else
-                FT_WriteOpl3(playbackBuffer[playbackIndex].addr, playbackBuffer[playbackIndex].value);
-            playbackIndex++;
-        }
-
-        FT_NextPlaybackBuffer();*/
-
         FT_WriteOpl1(4, 0x80);
         JIFFY = true;
     }
