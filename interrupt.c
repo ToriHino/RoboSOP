@@ -1,18 +1,19 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
 // Made with FUSION-C in SDCC
 
-#include "fusion-c/header/__interrupt.h"
+#include "fusion-c/header/msx_fusion.h"
+#include "fusion-c/header/newTypes.h"
+#include "RoboSOP.h"
+#include "interrupt.h"
+#include "opl.h"
 
 #define RG1SAV 0xF3E0
 
-#define PPI_REG_A 0xA8
-#define PPI_REG_B 0xA9
-#define PPI_REG_C 0xAA
-
+boolean JIFFY;
 byte oldInterruptHandler[3];
 
 void FT_InterruptHandler(void) 

@@ -1,13 +1,15 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
 // Made with FUSION-C in SDCC
 
-#define OPL4_REG  0xC4
-#define OPL4_DATA 0xC5
-#define OPL4_REG2 0xC6
+#include "fusion-c/header/msx_fusion.h"
+#include "fusion-c/header/newTypes.h"
+#include "fusion-c/header/rammapper.h"
+#include "RoboSOP.h"
+#include "opl.h"
 
 #define OPL4_TIMER1_COUNT 0x02
 #define OPL4_TIMER2_COUNT 0x03
@@ -37,6 +39,11 @@
 
 #define maxVoices       20
 #define YMB_SIZE        80
+
+byte volume[SOP_MAX_TRACK];
+byte lastvol[SOP_MAX_TRACK];
+byte masterVolume;
+byte* chanMode;
 
 const int fNumTbl[TABLE_SIZE]={
     0x0159, 0x015A, 0x015A, 0x015B, 0x015C, 0x015C, 0x015D, 0x015D, 0x015E, 0x015F, 0x015F, 0x0160,

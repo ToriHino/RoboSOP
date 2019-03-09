@@ -1,9 +1,18 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
 // Made with FUSION-C in SDCC
+
+#include "fusion-c/header/msx_fusion.h"
+#include "fusion-c/header/newTypes.h"
+#include "fusion-c/header/rammapper.h"
+#include "RoboSOP.h"
+
+SEGMENT_INFO segmentList[MAX_NR_SEGMENTS];
+int segmentsFound;
+int tickBeat;
 
 //
 // Allocate memory segments

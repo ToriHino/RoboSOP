@@ -1,9 +1,23 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
 // Made with FUSION-C in SDCC
+
+#include <stdio.h>
+#include <string.h>
+
+#include "fusion-c/header/msx_fusion.h"
+#include "fusion-c/header/newTypes.h"
+#include "fusion-c/header/io.h"
+#include "fusion-c/header/vars_msxDos.h"
+#include "fusion-c/header/rammapper.h"
+#include "RoboSOP.h"
+
+SOP_HEADER Header;
+SOP_INST*  Instruments;
+SOP_TRK    Tracks[SOP_MAX_TRACK+1];
 
 //
 // Load SOP instruments

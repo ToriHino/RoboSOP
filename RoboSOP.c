@@ -1,5 +1,5 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
@@ -12,15 +12,18 @@
 
 #include "fusion-c/header/msx_fusion.h"
 #include "fusion-c/header/newTypes.h"
-#include "fusion-c/header/io.h"
-#include "fusion-c/header/vars_msxDos.h"
 #include "fusion-c/header/rammapper.h"
-
 #include "RoboSOP.h"
-#include "memory.c"
-#include "file.c"
-#include "opl.c"
-#include "interrupt.c"
+#include "opl.h"
+#include "memory.h"
+#include "file.h"
+#include "interrupt.h"
+
+boolean songContinue;
+
+#define PPI_REG_A 0xA8
+#define PPI_REG_B 0xA9
+#define PPI_REG_C 0xAA
 
 //
 // Set the overall tempo

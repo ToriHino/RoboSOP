@@ -1,9 +1,12 @@
 //
-// RoboSOP 1.0
+// RoboSOP
 //
 // Copyright (C) 2019 by RoboSoft.
 //
 // Made with FUSION-C in SDCC
+
+#ifndef __ROBOSOP_H
+#define __ROBOSOP_H
 
 //#define __DEBUG         // Enable for debug output
 
@@ -108,20 +111,21 @@ typedef struct
 
 typedef void (*fnPtr)(void);
 
-SEGMENT_INFO segmentList[MAX_NR_SEGMENTS];
-int segmentsFound = 0;
+extern SEGMENT_INFO segmentList[MAX_NR_SEGMENTS];
+extern int segmentsFound;
+extern int tickBeat;
 
-int tickBeat;
+extern SOP_HEADER Header;
+extern SOP_INST*  Instruments;
+extern SOP_TRK    Tracks[SOP_MAX_TRACK+1];
 
-SOP_HEADER Header;
-SOP_INST*  Instruments;
-SOP_TRK    Tracks[SOP_MAX_TRACK+1];
+extern byte* chanMode;
 
-byte* chanMode;
+extern byte volume[SOP_MAX_TRACK];
+extern byte lastvol[SOP_MAX_TRACK];
+extern byte masterVolume;
 
-byte volume[SOP_MAX_TRACK];
-byte lastvol[SOP_MAX_TRACK];
-byte masterVolume;
+extern boolean songContinue;
+extern boolean JIFFY;
 
-boolean songContinue;
-boolean JIFFY;
+#endif
